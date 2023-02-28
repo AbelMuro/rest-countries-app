@@ -4,9 +4,59 @@
     width: 200px;
     height: 56px;
     background-color: white;
-    font-family: 'Nunito Sans';
-    font-size: 14px;
-    font-weight: 400;
     border: 0px;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.arrow{
+    pointer-events: none;
+    -webkit-mask: url('./Icons/ArrowDown.svg');
+    mask: url('./Icons/ArrowDown.svg');
+    width: 12px;
+    height: 12px;
+    background-color: black;
+}
+
+
+.filterOption{
+    pointer-events: none;
+    font-family: 'Nunito Sans';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+.options{
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    border-radius: 8px;
+    width: 246px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;    
+    padding: 8px 0px 8px 0px;
+    background-color: white;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+}
+
+.option{
+    border-radius: 8px;
+    pointer-events: all;
+    cursor: pointer;
+    font-family: 'Nunito Sans';
+    font-size: 14px;
+    line-height: 14px;
+    padding: 8px 0px 8px 24px;
+}
+
+.option:hover{
+    background-color:rgba(0, 0, 0, 0.0532439);
+
 }
