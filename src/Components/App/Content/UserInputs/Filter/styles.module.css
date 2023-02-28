@@ -1,0 +1,12 @@
+.filter{
+    padding: 0px 22px 0px 24px;
+    border-radius: 8px;
+    width: 200px;
+    height: 56px;
+    background-color: white;
+    font-family: 'Nunito Sans';
+    font-size: 14px;
+    font-weight: 400;
+    border: 0px;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+}
