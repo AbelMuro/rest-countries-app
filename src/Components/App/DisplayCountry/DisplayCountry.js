@@ -20,16 +20,15 @@ function DisplayCountry() {
 
     return data ? (
         <main className={styles.container}>
-            <img src={data[0].flags.png}/>
+            <img src={data[0].flags.png} className={styles.countryFlag}/>
             <div className={styles.grid}>
-
                 <h1 className={styles.countryName}>
                     {data[0].name}
                 </h1>
                 <div className={styles.sectionOne}>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Native Name:
+                            Native Name:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].nativeName}
@@ -37,7 +36,7 @@ function DisplayCountry() {
                     </div>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Population:
+                            Population:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].population}
@@ -45,7 +44,7 @@ function DisplayCountry() {
                     </div>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Region:
+                            Region:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].region}
@@ -53,7 +52,7 @@ function DisplayCountry() {
                     </div>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Sub Region:
+                            Sub Region:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].subregion}
@@ -61,7 +60,7 @@ function DisplayCountry() {
                     </div>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Capital:
+                            Capital:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].capital}
@@ -71,7 +70,7 @@ function DisplayCountry() {
                 <div className={styles.sectionTwo}>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Top Level Domain:
+                            Top Level Domain:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].topLevelDomain}
@@ -79,7 +78,7 @@ function DisplayCountry() {
                     </div>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Currencies:
+                            Currencies:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].currencies.map((currency) => {
@@ -89,7 +88,7 @@ function DisplayCountry() {
                     </div>
                     <div className={styles.flex}>
                         <h2 className={styles.title}>
-                            Languages:
+                            Languages:&nbsp;
                         </h2>
                         <p className={styles.desc}>
                             {data[0].languages.map((language) => {
@@ -100,20 +99,18 @@ function DisplayCountry() {
                 </div>
                 <div className={styles.borderCountries}>
                         <h2 className={styles.title}>
-                            Border COuntries: 
+                            Border Countries:&nbsp;&nbsp;
                         </h2>
                         <div className={styles.borderFlex}>
                             {data[0].borders.map((border) => {
                                 return (
-                                <div className={styles.borderContainer}> 
+                                    <div className={styles.borderContainer} key={border}> 
                                         {border}
-                                </div>
+                                    </div>
                                 )
                             })}                            
                         </div>
-
                 </div>
-
             </div>
         </main>
     ) : <>loading</>

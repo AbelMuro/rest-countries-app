@@ -1,0 +1,63 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 1278px;
+    gap: 120px;
+}
+
+.countryFlag{
+    width: 560px;
+    height: 401px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 23px;
+    width: 598px;
+}
+
+
+
+.countryName, .title, .desc{
+    font-family: 'Nunito Sans'; 
+    color: var(--text-color);
+}
+
+.countryName{
+    grid-column: 1/3;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 43.65px;
+}
+
+.flex{
+    display: flex;
+}
+
+.title{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.desc{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.borderCountries{
+    margin-top: 45px;
+    grid-column: 1/3;
+    display: flex;
+    align-items:center
+}
+
+.borderFlex{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
