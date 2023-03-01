@@ -1,3 +1,7 @@
+.searchBarContainer{
+    position: relative;
+}
+
 .search{
     border-radius: 8px;
     width: 480px;
@@ -5,7 +9,40 @@
     padding-left: 74px;
     border: none;
     font-family: 'Nunito Sans';
+    font-weight: 400;
     font-size: 14px;
-    color: #848484;
+    color: var(--text-color);
+    background-color: var(--search-bar-bg-color);
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+}
+
+.search::placeholder{
+    color: var(--search-bar-placeholder-color);
+}
+
+.search:focus{
+    outline: 0px;
+    border: 0px;
+}
+
+.icon{
+    -webkit-mask: url('./Icons/SearchIcon.svg');
+    mask: url('./Icons/SearchIcon.svg');
+    background-color: var(--search-bar-icon-color);
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 32px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+
+@media(max-width: 530px){
+    .searchBarContainer{
+        width: 100%;
+    }
+    .search{
+        width: 100%;
+    }
 }

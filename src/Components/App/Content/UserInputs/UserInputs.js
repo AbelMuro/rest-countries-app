@@ -6,7 +6,6 @@ import styles from './styles.module.css';
 function UserInputs() {
     return(
         <section className={styles.container}>
-            <img className={styles.icon}/>
             <SearchBar/>
             <Filter/>
         </section>

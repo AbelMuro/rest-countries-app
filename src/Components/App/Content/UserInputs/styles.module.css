@@ -6,15 +6,11 @@
     position: relative;
     margin-top: 48px;
 }
-.icon{
-    -webkit-mask: url('./Icons/SearchIcon.svg');
-    mask: url('./Icons/SearchIcon.svg');
-    background-color: #848484;
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    left: 32px;
-    top: 0px;
-    bottom: 0px;
-    margin: auto;
+
+@media(max-width: 900px){
+    .container{
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+    }
 }

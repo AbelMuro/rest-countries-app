@@ -33,7 +33,6 @@ function Filter(){
         return () => {
             document.removeEventListener('click', clickHandler)
         }
-
     }, [])
 
 

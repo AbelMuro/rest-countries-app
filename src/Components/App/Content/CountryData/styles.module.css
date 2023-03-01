@@ -1,0 +1,103 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 264px);
+    width: 1278px;
+    gap: 75px;
+    justify-content: space-between;
+    align-content: space-between;
+    transition: width 0.2s linear;
+
+}
+
+.countryContainer{
+    margin-top: 48px;
+    border-radius: 5px;
+    height: 336px;
+    background-color: var(--country-box-bg-color);
+    box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.0294384);
+}
+
+.countryFlag{
+    border-radius: 5px 5px 0px 0px;
+    width: 100%;
+    height: 160px;
+    transition: width 0.2s linear, height 0.2s linear;
+}
+
+.countryDataContainer{ 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 24px;
+}
+
+.countryName{
+    font-family: 'Nunito Sans';
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--text-color);
+}
+
+.countryData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 64px;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.countryName{
+    font-family: 'Nunito Sans';
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 26px;
+    color: var(--text-color);
+}
+
+.title, .data{
+    font-family: 'Nunito Sans';
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.title{
+    font-weight: 600;
+}
+
+.data{
+    font-weight: 300;
+}
+
+@media(max-width: 1350px){
+    .grid{
+        grid-template-columns: repeat(3, 264px);
+        width: 100%;
+    }
+
+    .countryFlag{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media(max-width: 1045px){
+    .grid{
+        grid-template-columns: repeat(2, 264px);
+        justify-content: space-around;
+    }
+}
+
+@media(max-width: 670px){
+    .grid{
+        grid-template-columns: 264px;
+        justify-content: center;
+    }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import UserInputs from './UserInputs';
+import CountryData from './CountryData';
 import styles from './styles.module.css';
 
 function Content(){
@@ -7,6 +8,7 @@ function Content(){
     return(
         <main className={styles.container}>
             <UserInputs/>
+            <CountryData/>
         </main>
         )
 }

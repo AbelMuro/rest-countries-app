@@ -3,7 +3,7 @@
     border-radius: 8px;
     width: 200px;
     height: 56px;
-    background-color: white;
+    background-color: var(--filter-box-bg-color);
     border: 0px;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
     display: flex;
@@ -19,9 +19,8 @@
     mask: url('./Icons/ArrowDown.svg');
     width: 12px;
     height: 12px;
-    background-color: black;
+    background-color: var(--text-color);
 }
-
 
 .filterOption{
     pointer-events: none;
@@ -29,6 +28,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    color: var(--text-color);
 }
 .options{
     pointer-events: none;
@@ -42,11 +42,12 @@
     justify-content: space-between;
     gap: 8px;    
     padding: 8px 0px 8px 0px;
-    background-color: white;
+    background-color: var(--filter-popup-options-bg-color);
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
 }
 
 .option{
+    color: var(--text-color);
     border-radius: 8px;
     pointer-events: all;
     cursor: pointer;
@@ -57,6 +58,5 @@
 }
 
 .option:hover{
-    background-color:rgba(0, 0, 0, 0.0532439);
-
+    background-color:var(--filter-option-hover-color);
 }

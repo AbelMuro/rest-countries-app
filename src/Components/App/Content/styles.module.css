@@ -2,5 +2,12 @@
     width: 1278px;
     margin: auto;
     display: block;
+    transition: width 0.2s linear;
 }
 
+
+@media(max-width: 1350px){
+    .container{
+        width: 90%;
+    }
+}
