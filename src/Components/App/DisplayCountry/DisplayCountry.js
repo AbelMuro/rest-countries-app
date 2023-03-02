@@ -95,9 +95,12 @@ function DisplayCountry() {
                             Currencies:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].currencies.map((currency) => {
-                                return currency.name + ", ";
-                            })}
+                            {data[0].currencies.map((currency, i) => {
+                                if(i > 1)
+                                    return ", " + currency.name;
+                                else
+                                    return currency.name;
+                            })} 
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -105,8 +108,11 @@ function DisplayCountry() {
                             Languages:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].languages.map((language) => {
-                                return language.name + ' ';
+                            {data[0].languages.map((language, i) => {
+                                if(i > 1)
+                                    return ", " + language.name;
+                                else 
+                                    return language.name;
                             })}
                         </p>
                     </div>

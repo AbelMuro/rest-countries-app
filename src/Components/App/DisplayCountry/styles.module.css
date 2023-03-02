@@ -90,6 +90,7 @@
     line-height: 19.1px;
     border-radius: 2px;
     background-color: var(--border-country-bg-color);
+    transition: background-color 0.2s linear;
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
 }
 
