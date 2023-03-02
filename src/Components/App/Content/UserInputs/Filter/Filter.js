@@ -35,6 +35,11 @@ function Filter(){
         }
     }, [])
 
+    /* i will need to dispatch an action to the reducer everytime there is a change in option state*/
+    useEffect(() => {
+
+    }, [option])
+
 
     return(
         <div className={styles.filter} onClick={handleClick} ref={filterBox}>

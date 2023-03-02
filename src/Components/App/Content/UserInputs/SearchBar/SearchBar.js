@@ -1,34 +1,36 @@
-import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import styles from './styles.module.css';
 
 function SearchBar() {
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setSearch(e.target.value);
     }
 
-    const keyboardHandler = (e) => {
-        if(e.key == 'Enter'){
-            console.log('enter');
-            dispatch({type: 'set', results: search});
-            navigate(`/${search}`);
-        }
+    const handleFocus = (e) =>{
+        e.target.style.boxShadow = '0px 2px 9px rgba(0, 0, 0, 0.532439)';
     }
 
-   const handleFocus = (e) =>{
-        e.target.style.boxShadow = '0px 2px 9px rgba(0, 0, 0, 0.532439)';
-        document.addEventListener('keydown', keyboardHandler)
+   const handleBlur = (e) => {
+        e.target.style.boxShadow = '';
    }
 
-   const handleBlur = (e) => {
-        e.target.style.boxShadow = ''
-        document.removeEventListener('keydown', keyboardHandler)
-   }
+   useEffect(() => {
+        const keyboardHandler = (e) => {
+            if(e.key == 'Enter')
+                dispatch({type: 'set', search: search});
+            
+        }
+        document.addEventListener('keydown', keyboardHandler);
+
+        return () => {
+            document.removeEventListener('keydown', keyboardHandler)
+        }
+
+   })
 
     return(
         <div className={styles.searchBarContainer}>

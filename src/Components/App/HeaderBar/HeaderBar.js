@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import SwitchTheme from './SwitchTheme';
 import styles from './styles.module.css';
 import LightMoonIcon from './Icons/LightMoonIcon.svg';

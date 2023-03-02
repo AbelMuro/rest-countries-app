@@ -10,7 +10,10 @@
     --filter-box-bg-color: white;
     --filter-popup-options-bg-color: white;
     --filter-option-hover-color: rgba(0, 0, 0, 0.0532439);
+    
     --country-box-bg-color: white;
+    --border-country-bg-color: white;
+    --go-back-bg-color: white;
 }
 
 

@@ -1,7 +1,7 @@
-export default function SearchReducer(state = {searchResults : {}}, action){
+export default function SearchReducer(state = {search : ''}, action){
     switch(action.type){
        case "set":
-            return {searchResults: action.results};
+            return {search: action.search};
        default: 
             return state;
 }

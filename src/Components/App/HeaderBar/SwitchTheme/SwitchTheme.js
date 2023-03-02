@@ -1,3 +1,4 @@
+
 const lightTheme = [
     '--body-bg-color: #FAFAFA',
     '--header-bar-bg-color: white',
@@ -8,7 +9,9 @@ const lightTheme = [
     '--filter-box-bg-color: white',
     '--filter-popup-options-bg-color: white',
     '--filter-option-hover-color: rgba(0, 0, 0, 0.0532439)',
-    '--country-box-bg-color: white'
+    '--country-box-bg-color: white',
+    '--border-country-bg-color: white',
+    '--go-back-bg-color: white'
 ]
 
 const darkTheme = [
@@ -21,7 +24,9 @@ const darkTheme = [
     '--filter-box-bg-color: #2B3844',
     '--filter-popup-options-bg-color: #2B3844',
     '--filter-option-hover-color: rgba(0, 0, 0, 0.0532439)',
-    '--country-box-bg-color: #2B3844'
+    '--country-box-bg-color: #2B3844',
+    '--border-country-bg-color: #2B3844',
+    '--go-back-bg-color: #2B3844'
 ]
 
 

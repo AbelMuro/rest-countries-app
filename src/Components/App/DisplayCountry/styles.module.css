@@ -1,15 +1,23 @@
+.flexContainer{
+    width: 1278px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin: 80px auto 0px auto;
+}
 .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    width: 1278px;
+    width: 100%;
     gap: 120px;
 }
 
 .countryFlag{
     width: 560px;
     height: 401px;
+    border-radius: 8px;
 }
 
 .grid{
@@ -19,9 +27,7 @@
     width: 598px;
 }
 
-
-
-.countryName, .title, .desc{
+.countryName, .title, .desc, .borderContainer{
     font-family: 'Nunito Sans'; 
     color: var(--text-color);
 }
@@ -43,21 +49,75 @@
     line-height: 32px;
 }
 
-.desc{
+.desc, .message{
     font-weight: 300;
     font-size: 16px;
     line-height: 32px;
 }
 
+.message{
+    font-family: 'Nunito Sans';
+    color: var(--text-color);
+    position: relative;
+    right: 16px;
+}
+
+
 .borderCountries{
     margin-top: 45px;
     grid-column: 1/3;
     display: flex;
-    align-items:center
+    align-items:center;
+    gap: 16px;
+    height: 28px;
 }
 
-.borderFlex{
-    display: flex;
+.borderGrid{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     justify-content: space-between;
     gap: 10px;
+}
+
+.borderContainer{
+    min-width: 96px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19.1px;
+    border-radius: 2px;
+    background-color: var(--border-country-bg-color);
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+}
+
+.goBack{
+    cursor: pointer;
+    background-color: var(--go-back-bg-color);
+    box-sizing: border-box;
+    padding: 0px 39px 0px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 136px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.icon{
+    -webkit-mask: url('./Icons/LeftArrow.svg');
+    mask: url('./Icons/LeftArrow.svg');
+    background-color: var(--text-color);
+    width: 18px;
+    height: 20px;
+}
+
+.back{
+    font-family: 'Nunito Sans';
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
 }

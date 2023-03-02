@@ -1,25 +1,39 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import {useLocation, useNavigate} from 'react-router-dom';
 import styles from './styles.module.css';
 
 function DisplayCountry() {
     const [data, setData] = useState(null);
-    const countryName = useSelector(state => state.searchResults)
+    const {state} = useLocation();
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+        navigate('/');
+    }
 
     useEffect(() => {
-        fetch(`https://restcountries.com/v2/name/${countryName}`)
+        fetch(`https://restcountries.com/v2/name/${state}?fullText=true`)
             .then((response) => {
                 return response.json();
             })
             .then((results) => {
-                console.log(results);
-                setData(results);
+                setData(results);              
+            })
+            .catch((error) => {
+                console.log('error', error);
             })
     },[])
 
 
     return data ? (
-        <main className={styles.container}>
+        <main className={styles.flexContainer}>
+        <a className={styles.goBack} onClick={handleGoBack}>         
+            <img className={styles.icon}/>
+            <span className={styles.back}>  
+                Back
+            </span>
+        </a>
+        <section className={styles.container}>
             <img src={data[0].flags.png} className={styles.countryFlag}/>
             <div className={styles.grid}>
                 <h1 className={styles.countryName}>
@@ -39,7 +53,7 @@ function DisplayCountry() {
                             Population:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].population}
+                            {data[0].population.toLocaleString()}
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -101,7 +115,8 @@ function DisplayCountry() {
                         <h2 className={styles.title}>
                             Border Countries:&nbsp;&nbsp;
                         </h2>
-                        <div className={styles.borderFlex}>
+                        {data[0].borders ? 
+                        <div className={styles.borderGrid}>
                             {data[0].borders.map((border) => {
                                 return (
                                     <div className={styles.borderContainer} key={border}> 
@@ -109,10 +124,15 @@ function DisplayCountry() {
                                     </div>
                                 )
                             })}                            
-                        </div>
+                        </div> : 
+                        <div className={styles.message}>
+                            No borders
+                        </div>}
                 </div>
             </div>
+        </section>        
         </main>
+   
     ) : <>loading</>
 }
 
