@@ -4,8 +4,9 @@ import {useNavigate} from 'react-router-dom';
 import styles from './styles.module.css';
 
 function CountryData(){
-    const [data, setData] = useState();
-    const search = useSelector(state => state.search);
+    const [data, setData] = useState([]);
+    const {search} = useSelector(state => state.search);
+    const {filter} = useSelector(state => state.filter);
     const navigate = useNavigate();
 
     const handleClick = (e) => {      
@@ -20,12 +21,33 @@ function CountryData(){
                 return response.json();
             })
             .then((results) => {
+                console.log(results);
                 setData(results);
             }) 
             .catch((error) => {
                 console.log('error', error);
             })
     }, [search])
+
+
+    useEffect(() => {
+        if(!filter) return;
+
+        fetch(`https://restcountries.com/v3.1/region/${filter.toLowerCase()}`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((results) => {
+                console.log(results);
+                setData(results);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+      
+    }, [filter])
+
+
 
     return data ? (
         <section className={styles.grid}>

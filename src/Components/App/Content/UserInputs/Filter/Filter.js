@@ -1,8 +1,10 @@
 import React, {useRef, useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import styles from './styles.module.css';
 
 function Filter(){
     const [option, setOption] = useState('Filter by Region');
+    const dispatch = useDispatch();
     const filterBox = useRef();
     const filterOption = useRef();
     const displayPopup = useRef();
@@ -37,7 +39,8 @@ function Filter(){
 
     /* i will need to dispatch an action to the reducer everytime there is a change in option state*/
     useEffect(() => {
-
+        if(option != 'Filter by Region')
+            dispatch({type: 'filter', filter: option})
     }, [option])
 
 
