@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import LoadingScreen from './LoadingScreen';
 import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import styles from './styles.module.css';
@@ -38,7 +39,6 @@ function CountryData(){
                 return response.json();
             })
             .then((results) => {
-                console.log(results);
                 setData(results);
             })
             .catch((error) => {
@@ -51,7 +51,7 @@ function CountryData(){
 
     return data ? (
         <section className={styles.grid}>
-            {data.map((country) => {
+            {data.length ? data.map((country) => {
                 return(
                     <div className={styles.countryContainer} key={country.name.official} onClick={handleClick} data-name={country.name.official}>
                         <img className={styles.countryFlag} src={country.flags.png} alt={country.flags.alt}/>
@@ -90,8 +90,11 @@ function CountryData(){
                         </div>
                        
                 )
-            })}
-        </section>) : <>loading</>
+            }): 
+            <div className={styles.message}>
+                No countries found.
+            </div> }
+        </section>) : <LoadingScreen/>
 }
 
 export default CountryData;

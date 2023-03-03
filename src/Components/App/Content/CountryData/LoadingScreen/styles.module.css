@@ -1,0 +1,29 @@
+.grid{
+    margin-top: 48px;
+    width: 1275px;
+    display: grid;
+    grid-template-columns: repeat(4, 264px);
+    justify-content: space-between;
+    align-content: space-between;
+    gap: 75px;
+}
+
+@media(max-width: 1350px){
+    .grid{
+        width: 100%;
+        grid-template-columns: repeat(3, 264px);
+    }
+}
+
+@media(max-width: 1045px){
+    .grid{
+        grid-template-columns: repeat(2, 264px);
+        justify-content: space-around;
+    }
+}
+
+@media(max-width: 670px){
+    .grid{
+        grid-template-columns: 264px;
+    }
+}

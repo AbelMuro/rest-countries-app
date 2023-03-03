@@ -12,11 +12,15 @@ function Filter(){
     const handleClick = () => {
         const isDisplayed = displayPopup.current.style.display;
 
-        if(isDisplayed == 'flex')
+        if(isDisplayed == 'flex'){
             displayPopup.current.style.display = '';
+            filterBox.current.style.boxShadow = '';
+        }
 
-        if(isDisplayed == '')
+        else if(isDisplayed == ''){
             displayPopup.current.style.display = 'flex';
+            filterBox.current.style.boxShadow = '0px 2px 9px rgba(0, 0, 0, 0.5324398)';
+        }
     }
 
     const handleOption = (e) => {
@@ -27,13 +31,14 @@ function Filter(){
     /* if the user clicks on anything that isn't the filter box, then the filter popup will automatically close*/
     useEffect(() => {
         const clickHandler = (e) => {
-            if(e.target && !e.target.matches('.' + styles.filter))
+            if(e.target && !e.target.matches('.' + styles.filter)){
                 displayPopup.current.style.display = '';
+                filterBox.current.style.boxShadow = '';
+            }       
         }
-        document.addEventListener('click', clickHandler)
-
+        document.addEventListener('click', clickHandler);
         return () => {
-            document.removeEventListener('click', clickHandler)
+            document.removeEventListener('click', clickHandler);
         }
     }, [])
 

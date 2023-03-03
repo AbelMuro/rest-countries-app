@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
+import LoadingScreen from './LoadingScreen';
 import styles from './styles.module.css';
 
 function DisplayCountry() {
@@ -26,7 +27,7 @@ function DisplayCountry() {
 
 
     return data ? (
-        <main className={styles.flexContainer}>
+    <main className={styles.flexContainer}>
         <a className={styles.goBack} onClick={handleGoBack}>         
             <img className={styles.icon}/>
             <span className={styles.back}>  
@@ -137,9 +138,9 @@ function DisplayCountry() {
                 </div>
             </div>
         </section>        
-        </main>
+    </main>
    
-    ) : <>loading</>
+    ) : <LoadingScreen/>
 }
 
 export default DisplayCountry;

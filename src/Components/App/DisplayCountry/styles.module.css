@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 80px;
     margin: 80px auto 0px auto;
+    transition: width 0.2s linear, margin 0.2s linear;
 }
 .container{
     display: flex;
@@ -12,12 +13,14 @@
     margin: auto;
     width: 100%;
     gap: 120px;
+    transition: gap 0.2s linear;
 }
 
 .countryFlag{
     width: 560px;
     height: 401px;
     border-radius: 8px;
+    transition: width 0.2s linear, height 0.2s linear;
 }
 
 .grid{
@@ -25,11 +28,13 @@
     grid-template-columns: auto auto;
     row-gap: 23px;
     width: 598px;
+    transition: row-gap 0.2s linear;
 }
 
 .countryName, .title, .desc, .borderContainer{
     font-family: 'Nunito Sans'; 
     color: var(--text-color);
+    transition: font-size 0.2s linear;
 }
 
 .countryName{
@@ -67,12 +72,11 @@
     margin-top: 45px;
     grid-column: 1/3;
     display: flex;
-    align-items:center;
     gap: 16px;
-    height: 28px;
 }
 
 .borderGrid{
+    margin-top: 3px;
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
@@ -121,4 +125,72 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 20px;
+}
+
+@media(max-width: 1350px){
+    .flexContainer{
+        width: 90%;
+        gap: 40px;
+    }
+    .container{
+        gap: 60px;
+    }
+
+    .countryFlag{
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+    }
+    .borderCountries{
+        margin-top: 18px;
+    }
+}
+
+@media(max-width: 1000px){
+    .countryName{
+        font-size: 27px;
+        line-height: 30px;
+    }
+    .title, .desc, .message{
+        font-size: 14px;
+    }
+
+    .grid{
+        row-gap: 16px;
+    }
+}
+
+@media(max-width: 900px){
+    .flexContainer{
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+
+    .grid{
+        width: 100%;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .countryFlag{
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px){
+    .grid{
+        grid-template-columns: auto;
+        align-self: flex-start;
+    }
+
+    .countryName, .borderCountries{
+        grid-column: 1/2;
+    }
+    .sectionOne{
+        margin-bottom: 16px;
+    }
+    .borderCountries{
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
