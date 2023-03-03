@@ -16,13 +16,13 @@ function CountryData(){
             navigate(`/${name}`, {state: name});
     }
 
+    //we make a fetch request depending on the value of search
     useEffect(() => {
         fetch(`https://restcountries.com/v3.1/${search ? `name/${search}`: 'all'}`)
             .then((response) => {
                 return response.json();
             })
             .then((results) => {
-                console.log(results);
                 setData(results);
             }) 
             .catch((error) => {
@@ -53,7 +53,7 @@ function CountryData(){
         <section className={styles.grid}>
             {data.length ? data.map((country) => {
                 return(
-                    <div className={styles.countryContainer} key={country.name.official} onClick={handleClick} data-name={country.name.official}>
+                    <div className={styles.countryContainer} key={country.name.official} onClick={handleClick} data-name={country.cca3.toLowerCase()}>
                         <img className={styles.countryFlag} src={country.flags.png} alt={country.flags.alt}/>
                         <div className={styles.countryDataContainer}>
                             <h2 className={styles.countryName}>

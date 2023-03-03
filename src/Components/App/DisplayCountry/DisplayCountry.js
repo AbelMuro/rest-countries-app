@@ -7,13 +7,14 @@ function DisplayCountry() {
     const [data, setData] = useState(null);
     const {state} = useLocation();
     const navigate = useNavigate();
+    console.log()
 
     const handleGoBack = () => {
         navigate('/');
     }
 
     useEffect(() => {
-        fetch(`https://restcountries.com/v2/name/${state}?fullText=true`)
+        fetch(`https://restcountries.com/v2/alpha/${state}`)
             .then((response) => {
                 return response.json();
             })
@@ -35,10 +36,10 @@ function DisplayCountry() {
             </span>
         </a>
         <section className={styles.container}>
-            <img src={data[0].flags.png} className={styles.countryFlag}/>
+            <img src={data.flags.png} className={styles.countryFlag}/>
             <div className={styles.grid}>
                 <h1 className={styles.countryName}>
-                    {data[0].name}
+                    {data.name}
                 </h1>
                 <div className={styles.sectionOne}>
                     <div className={styles.flex}>
@@ -46,7 +47,7 @@ function DisplayCountry() {
                             Native Name:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].nativeName}
+                            {data.nativeName}
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -54,7 +55,7 @@ function DisplayCountry() {
                             Population:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].population.toLocaleString()}
+                            {data.population.toLocaleString()}
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -62,7 +63,7 @@ function DisplayCountry() {
                             Region:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].region}
+                            {data.region}
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -70,7 +71,7 @@ function DisplayCountry() {
                             Sub Region:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].subregion}
+                            {data.subregion}
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -78,7 +79,7 @@ function DisplayCountry() {
                             Capital:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].capital}
+                            {data.capital}
                         </p>
                     </div>
                 </div>
@@ -88,7 +89,7 @@ function DisplayCountry() {
                             Top Level Domain:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].topLevelDomain}
+                            {data.topLevelDomain}
                         </p>
                     </div>
                     <div className={styles.flex}>
@@ -96,7 +97,7 @@ function DisplayCountry() {
                             Currencies:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].currencies.map((currency, i) => {
+                            {data.currencies.map((currency, i) => {
                                 if(i > 1)
                                     return ", " + currency.name;
                                 else
@@ -109,7 +110,7 @@ function DisplayCountry() {
                             Languages:&nbsp;
                         </h2>
                         <p className={styles.desc}>
-                            {data[0].languages.map((language, i) => {
+                            {data.languages.map((language, i) => {
                                 if(i > 1)
                                     return ", " + language.name;
                                 else 
@@ -122,9 +123,9 @@ function DisplayCountry() {
                         <h2 className={styles.title}>
                             Border Countries:&nbsp;&nbsp;
                         </h2>
-                        {data[0].borders ? 
+                        {data.borders ? 
                         <div className={styles.borderGrid}>
-                            {data[0].borders.map((border) => {
+                            {data.borders.map((border) => {
                                 return (
                                     <div className={styles.borderContainer} key={border}> 
                                         {border}
