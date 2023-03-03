@@ -18,9 +18,10 @@
     pointer-events: none;
     -webkit-mask: url('./Icons/ArrowDown.svg');
     mask: url('./Icons/ArrowDown.svg');
-    width: 12px;
+    width: 10px;
     height: 12px;
     background-color: var(--text-color);
+    transition: transform 0.2s linear;
 }
 
 .filterOption{

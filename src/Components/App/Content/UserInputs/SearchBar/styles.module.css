@@ -29,6 +29,7 @@
 .icon{
     -webkit-mask: url('./Icons/SearchIcon.svg');
     mask: url('./Icons/SearchIcon.svg');
+    mask-repeat: no-repeat;
     background-color: var(--search-bar-icon-color);
     width: 18px;
     height: 18px;

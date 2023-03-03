@@ -8,6 +8,7 @@ function Filter(){
     const filterBox = useRef();
     const filterOption = useRef();
     const displayPopup = useRef();
+    const arrow = useRef();
 
     const handleClick = () => {
         const isDisplayed = displayPopup.current.style.display;
@@ -15,11 +16,13 @@ function Filter(){
         if(isDisplayed == 'flex'){
             displayPopup.current.style.display = '';
             filterBox.current.style.boxShadow = '';
+            arrow.current.style.transform = '';
         }
 
         else if(isDisplayed == ''){
             displayPopup.current.style.display = 'flex';
             filterBox.current.style.boxShadow = '0px 2px 9px rgba(0, 0, 0, 0.5324398)';
+            arrow.current.style.transform = 'rotate(180deg)'
         }
     }
 
@@ -34,6 +37,7 @@ function Filter(){
             if(e.target && !e.target.matches('.' + styles.filter)){
                 displayPopup.current.style.display = '';
                 filterBox.current.style.boxShadow = '';
+                arrow.current.style.transform = '';
             }       
         }
         document.addEventListener('click', clickHandler);
@@ -52,7 +56,7 @@ function Filter(){
     return(
         <div className={styles.filter} onClick={handleClick} ref={filterBox}>
             <p className={styles.filterOption} ref={filterOption}>{option}</p>
-            <img className={styles.arrow}/>
+            <img className={styles.arrow} ref={arrow}/>
             <div className={styles.options} ref={displayPopup}>
                 <p className={styles.option} data-value='Africa' onClick={handleOption}>
                     Africa
